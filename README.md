@@ -30,7 +30,7 @@ Uygulama; yerel güvenlik kuralları, Semgrep, Bandit ve opsiyonel Groq LLM dest
 | Pytest | Test altyapısı |
 | Docker | Konteyner ile çalıştırma |
 
-## Uygulama Görselleri
+```
 
 ### 1. Kod Analiz Ekranı
 
@@ -77,43 +77,3 @@ codevuln_agent/
 +-- Dockerfile
 +-- scanner/
 |   +-- language_detector.py
-|   +-- rule_scanner.py
-|   +-- semgrep_scanner.py
-|   +-- bandit_scanner.py
-|   +-- rules/
-+-- reporter/
-|   +-- json_reporter.py
-|   +-- markdown_reporter.py
-|   +-- html_reporter.py
-+-- agent/
-|   +-- llm_agent.py
-+-- tests/
-Kurulum
-git clone https://github.com/ilayda-aytas/codevuln-agent.git
-cd codevuln-agent
-python -m pip install -r requirements.txt
-Çalıştırma
-python -m streamlit run app.py
-Uygulamayı tarayıcıda açmak için:
-http://localhost:8501
-Semgrep Kullanımı
-Semgrep kuruluysa uygulama içinde ek bir detection source olarak çalışır.
-Kontrol etmek için:
-python -m semgrep --version
-Eksikse kurmak için:
-python -m pip install semgrep
-Bandit Kullanımı
-Bandit yalnızca Python kodları için çalışır ve Python'a özel güvenlik problemlerini tespit etmeye yardımcı olur.
-Kontrol etmek için:
-python -m bandit --version
-Eksikse kurmak için:
-python -m pip install bandit
-Docker ile Çalıştırma
-Docker imajı oluşturma:
-docker build -t codevuln-agent:latest .
-Konteyneri çalıştırma:
-docker run --rm -p 8501:8501 codevuln-agent:latest
-Ardından:
-http://localhost:8501
-Testler
-python -m pytest

@@ -1,73 +1,73 @@
 # CodeVuln Agent
 
-CodeVuln Agent, kaynak kodlarda potansiyel güvenlik açıklarını tespit etmeye yardımcı olan Python ve Streamlit tabanlı bir SAST ön analiz aracıdır.
+CodeVuln Agent is a Python and Streamlit based SAST-style security analysis assistant for detecting potential vulnerabilities in source code.
 
-Uygulama; yerel güvenlik kuralları, Semgrep, Bandit ve opsiyonel Groq LLM desteği ile kod analizi yapar. Kullanıcılar kod yapıştırabilir, dosya yükleyebilir, özel regex kuralı ekleyebilir, bulguları filtreleyebilir ve raporları JSON, Markdown veya HTML formatında dışa aktarabilir.
+The application combines local security rules, Semgrep, Bandit, and optional Groq LLM support. Users can paste code, upload source files, define custom regex rules, filter findings, inspect detailed vulnerability results, and export reports as JSON, Markdown, or HTML.
 
-## Özellikler
+## Features
 
-- Python, JavaScript, PHP, Java, HTML ve generic kod analizi
-- Streamlit tabanlı web arayüzü
-- Yerel rule-based scanner desteği
-- Semgrep ile opsiyonel statik analiz
-- Bandit ile Python güvenlik taraması
-- Custom regex rule desteği
-- Severity ve detection source filtreleme
-- Detaylı bulgu ekranı
-- JSON, Markdown ve HTML rapor indirme
-- Opsiyonel Groq LLM explanation ve executive summary desteği
+- Analyze Python, JavaScript, PHP, Java, HTML, and generic source code
+- Streamlit-based web interface
+- Local rule-based vulnerability scanning
+- Optional Semgrep static analysis integration
+- Optional Bandit security scanning for Python code
+- Custom regex rule support from the UI
+- Filtering by severity and detection source
+- Detailed vulnerability finding view
+- JSON, Markdown, and HTML report exports
+- Optional Groq LLM-powered explanations and executive summaries
 
-## Kullanılan Teknolojiler
+## Technology Stack
 
-| Teknoloji | Açıklama |
+| Technology | Purpose |
 | --- | --- |
-| Python | Ana backend ve analiz mantığı |
-| Streamlit | Web arayüzü |
-| Semgrep | Statik analiz ve pattern tabanlı güvenlik taraması |
-| Bandit | Python kodları için güvenlik analizi |
-| Pandas | Bulguların tablo halinde gösterilmesi |
-| Groq SDK | Opsiyonel LLM destekli açıklama üretimi |
-| Pytest | Test altyapısı |
-| Docker | Konteyner ile çalıştırma |
+| Python | Main backend and analysis logic |
+| Streamlit | Web user interface |
+| Semgrep | Static analysis and pattern-based security scanning |
+| Bandit | Python-specific security analysis |
+| Pandas | Rendering findings in table format |
+| Groq SDK | Optional LLM-powered explanations |
+| Pytest | Test framework |
+| Docker | Containerized execution |
 
 
-### 1. Kod Analiz Ekranı
+### 1. Code Analysis Screen
 
-Kullanıcı bu ekranda analiz edilecek kodu yapıştırabilir veya kaynak dosya yükleyebilir. Sol menüden Semgrep, Bandit ve LLM seçenekleri kontrol edilebilir.
+Users can paste source code or upload files for analysis. Semgrep, Bandit, and optional LLM enhancement can be controlled from the sidebar.
 
 ![Analyze Code](docs/images/analyze-code.png)
 
-### 2. Analiz Sonuç Özeti
+### 2. Results Summary
 
-Analiz tamamlandıktan sonra uygulama tespit edilen dili, toplam bulgu sayısını ve severity dağılımını gösterir.
+After the scan is completed, the application shows the detected language, total number of findings, severity distribution, and executive summary.
 
 ![Results Summary](docs/images/results-summary.png)
 
-### 3. Bulgular Tablosu
+### 3. Findings Table
 
-Tespit edilen güvenlik bulguları tablo halinde listelenir. Bulgular severity, vulnerability name, line, CWE, OWASP category, source ve confidence bilgileriyle gösterilir.
+Detected vulnerabilities are displayed in a structured table with severity, vulnerability name, affected line, CWE, OWASP category, detection source, and confidence.
 
 ![Findings Table](docs/images/findings-table.png)
 
-### 4. Detaylı Bulgu İnceleme
+### 4. Detailed Finding View
 
-Her bulgu açılarak detaylı şekilde incelenebilir. Bu bölümde etkilenen satır, kanıt kod parçası, açıklama ve güvenli çözüm önerisi gösterilir.
+Each finding can be expanded to inspect the affected line, evidence, explanation, recommendation, confidence, CWE, OWASP category, and detection source.
 
 ![Detailed Finding](docs/images/detailed-finding.png)
 
-### 5. Rapor Dışa Aktarma
+### 5. Report Export
 
-Analiz sonuçları JSON, Markdown veya HTML formatında indirilebilir.
+Analysis results can be exported as JSON, Markdown, or HTML reports.
 
 ![Export Report](docs/images/export-report.png)
 
 ### 6. Custom Regex Rule
 
-Kullanıcı isterse arayüzden özel regex tabanlı güvenlik kuralı tanımlayabilir. Bu özellik proje özelinde kontrol edilmesi gereken pattern'ler için kullanılabilir.
+Users can define a custom regex-based security rule directly from the UI. This is useful for project-specific patterns or quick checks.
 
 ![Custom Rule](docs/images/custom-rule.png)
 
-## Proje Yapısı
+## Project Structure
 
 ```text
 codevuln_agent/
@@ -89,7 +89,7 @@ codevuln_agent/
 +-- tests/
 ```
 
-## Kurulum
+## Installation
 
 ```bash
 git clone https://github.com/ilayda-aytas/codevuln-agent.git
@@ -97,83 +97,74 @@ cd codevuln-agent
 python -m pip install -r requirements.txt
 ```
 
-## Çalıştırma
+## Running the Application
 
 ```bash
 python -m streamlit run app.py
 ```
 
-Uygulamayı tarayıcıda açmak için:
+Open the application in your browser:
 
 ```text
 http://localhost:8501
 ```
 
-## Semgrep Kullanımı
+## Semgrep Usage
 
-Semgrep kuruluysa uygulama içinde ek bir detection source olarak çalışır.
+If Semgrep is installed, the application uses it as an additional detection source.
 
-Kontrol etmek için:
+Check Semgrep:
 
 ```bash
 python -m semgrep --version
 ```
 
-Eksikse kurmak için:
+Install Semgrep if missing:
 
 ```bash
 python -m pip install semgrep
 ```
 
-## Bandit Kullanımı
+## Bandit Usage
 
-Bandit yalnızca Python kodları için çalışır ve Python'a özel güvenlik problemlerini tespit etmeye yardımcı olur.
+Bandit runs only for Python code and helps detect Python-specific security issues.
 
-Kontrol etmek için:
+Check Bandit:
 
 ```bash
 python -m bandit --version
 ```
 
-Eksikse kurmak için:
+Install Bandit if missing:
 
 ```bash
 python -m pip install bandit
 ```
 
-## Docker ile Çalıştırma
+## Running with Docker
 
-Docker imajı oluşturma:
+Build the Docker image:
 
 ```bash
 docker build -t codevuln-agent:latest .
 ```
 
-Konteyneri çalıştırma:
+Run the container:
 
 ```bash
 docker run --rm -p 8501:8501 codevuln-agent:latest
 ```
 
-Ardından:
+Then open:
 
 ```text
 http://localhost:8501
 ```
 
-## Testler
+## Running Tests
 
 ```bash
 python -m pytest
 ```
 
-## Notlar
 
-- Bu araç ön analiz amacıyla geliştirilmiştir.
-- Profesyonel güvenlik denetiminin yerine geçmez.
-- False positive veya false negative sonuçlar olabilir.
-- API key gibi gizli bilgiler `.env` dosyasında tutulmalı ve GitHub'a gönderilmemelidir.
-
-## Lisans
-
-Bu proje MIT License ile lisanslanabilir.

@@ -35,7 +35,7 @@ The application combines local security rules, Semgrep, Bandit, and optional Gro
 
 Users can paste source code or upload files for analysis. Semgrep, Bandit, and optional LLM enhancement can be controlled from the sidebar.
 
-![Analyze Code](docs/images/analyze-code.png)
+<img width="1911" height="812" alt="1" src="https://github.com/user-attachments/assets/0519757b-2c75-4ad2-8bfb-3b28735d903c" />
 
 ### 2. Results Summary
 

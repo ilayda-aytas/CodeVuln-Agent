@@ -41,31 +41,31 @@ Users can paste source code or upload files for analysis. Semgrep, Bandit, and o
 
 After the scan is completed, the application shows the detected language, total number of findings, severity distribution, and executive summary.
 
-![Results Summary](docs/images/results-summary.png)
+<img width="1867" height="685" alt="2" src="https://github.com/user-attachments/assets/082bc41f-2611-4c60-a066-ac4380e05dd5" />
 
 ### 3. Findings Table
 
 Detected vulnerabilities are displayed in a structured table with severity, vulnerability name, affected line, CWE, OWASP category, detection source, and confidence.
 
-![Findings Table](docs/images/findings-table.png)
+<img width="1894" height="795" alt="3" src="https://github.com/user-attachments/assets/636dd514-41b6-4ec9-bb4b-2e77909656c2" />
 
 ### 4. Detailed Finding View
 
 Each finding can be expanded to inspect the affected line, evidence, explanation, recommendation, confidence, CWE, OWASP category, and detection source.
 
-![Detailed Finding](docs/images/detailed-finding.png)
+<img width="1898" height="764" alt="4" src="https://github.com/user-attachments/assets/41ee8f4d-ba12-4617-944d-158dd42d431f" />
 
 ### 5. Report Export
 
 Analysis results can be exported as JSON, Markdown, or HTML reports.
 
-![Export Report](docs/images/export-report.png)
+<img width="1904" height="777" alt="5" src="https://github.com/user-attachments/assets/5e8ebaf5-67f9-4bb2-9bba-f0505c1427c7" />
 
 ### 6. Custom Regex Rule
 
 Users can define a custom regex-based security rule directly from the UI. This is useful for project-specific patterns or quick checks.
 
-![Custom Rule](docs/images/custom-rule.png)
+<img width="1896" height="811" alt="6" src="https://github.com/user-attachments/assets/a6d23ba3-9715-41b2-97be-6ed437fb7149" />
 
 ## Project Structure
 
